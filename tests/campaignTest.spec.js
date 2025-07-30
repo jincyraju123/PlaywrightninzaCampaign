@@ -122,7 +122,7 @@ test.only('expected close date field should not accept past date', async ({ page
   expect(validationMessage).toContain(expectedMessage);
 });
 
-test('expected close date field should not accept invalid format', async ({ page }) => {
+test.only('expected close date field should not accept invalid format', async ({ page }) => {
   const campaign = testData.campaigns[6];
   await CampaignPage.clickCampaignsTab();
   await CampaignPage.clickCreateCampaign();
@@ -144,7 +144,7 @@ test('expected close date field should not accept month greater than 12', async 
   expect(validationMessage).toContain(campaign.expectedValidationMessage);
 });
 
-test('edit and update campaign ', async ({ page }) => {
+test.only('edit and update campaign ', async ({ page }) => {
   const campaign = testData.campaigns[8]; 
 
   // Create campaign first
