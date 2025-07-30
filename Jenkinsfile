@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git url: 'https://github.com/ninjahrm/Group4.git', branch: 'main'
+        git url: 'https://github.com/jincyraju123/PlaywrightninzaCampaign.git', branch: 'main'
       }
     }
 
