@@ -30,6 +30,12 @@ pipeline {
       }
     }
 
+    stage('Process Allure Results') {
+      steps {
+        bat 'npx allure-playwright'           //Converts Playwright output into Allure-friendly format
+      }
+    }
+
     stage('Generate Allure Report') {
       steps {
         bat 'npx allure generate ./allure-results -o ./allure-report --clean'

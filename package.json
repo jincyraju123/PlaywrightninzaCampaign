@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "campaigntest": "npx playwright test campaignTest.spec",
+    "campaigntest": "npx playwright test campaignTest.spec.js --project=chromium",
     "test:headed": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
     "report": "npx playwright show-report",

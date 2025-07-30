@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","13062","edit and update campaign","chromium","Tue Jul 29 22:24:58 EDT 2025","passed","Tue Jul 29 22:25:11 EDT 2025","","campaignTest.spec.js","",""
+"","11718","expected close date field should not accept past date","chromium","Tue Jul 29 22:24:29 EDT 2025","failed","Tue Jul 29 22:24:41 EDT 2025","","campaignTest.spec.js","",""
+"","10619","expected close date field should not accept invalid format","chromium","Tue Jul 29 22:24:30 EDT 2025","failed","Tue Jul 29 22:24:40 EDT 2025","","campaignTest.spec.js","",""

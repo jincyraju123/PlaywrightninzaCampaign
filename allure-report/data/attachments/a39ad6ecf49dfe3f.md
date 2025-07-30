@@ -1,0 +1,51 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - list:
+    - listitem:
+      - link "Campaigns":
+        - /url: /campaigns
+    - listitem:
+      - link "Contacts":
+        - /url: /contacts
+    - listitem:
+      - link "Leads":
+        - /url: /leads
+    - listitem:
+      - link "Opportunities":
+        - /url: /opportunities
+    - listitem:
+      - link "Products":
+        - /url: /products
+    - listitem:
+      - link "Quotes":
+        - /url: /quotes
+    - listitem:
+      - link "Purchase Order":
+        - /url: /purchase-order
+    - listitem:
+      - link "Sales Order":
+        - /url: /sales-order
+    - listitem:
+      - link "Invoice":
+        - /url: /invoice
+    - listitem:
+      - listitem: Admin Console
+- heading "Create Campaign" [level=3]
+- text: "Campaign ID:"
+- textbox: Auto Generated
+- text: Campaign Name*
+- textbox: Product Launch
+- text: "Campaign Status:"
+- textbox: Active
+- text: Target Size*
+- spinbutton: "1000"
+- text: "Expected Close Date:"
+- textbox: 2020-01-11
+- text: "Target Audience:"
+- textbox: customers
+- text: "Description:"
+- textbox: Campaign with past close date
+- button "Create Campaign"
+```
