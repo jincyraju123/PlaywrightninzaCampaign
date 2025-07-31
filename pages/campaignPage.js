@@ -16,6 +16,11 @@
       this.createCampaignButton='button[type="submit"]';
       this.editCampaignButton='(//a[@class="edit"]/i)[1]';
       this.updateCampaignButton='//button[text()="Update Campaign"]';
+      this .searchBox='//select[@class="form-control"]';
+      this .searchInput='//input[@placeholder="Search by Campaign Name"]';
+      this .campaignsTable='//table[@class="table table-striped table-hover"]';
+      this.tableRows = page.locator('table.table tbody tr');
+
 
 
     }
@@ -90,10 +95,34 @@ async clickUpdateCampaignButton() {
     await this.page.locator(this.updateCampaignButton).click();
     await this.page.waitForTimeout(2000);
 }
+async searchCampaignByName(name) {
 
+    await this.page.locator(this.searchBox).click();
+    await this.page.selectOption('select', { label: 'Search by Campaign Name' });
+    await this.page.locator(this.searchInput).fill(name);
+    await this.page.waitForTimeout(2000); 
+  }
 
+  getCampaignRowByName(name) {
+    return this.tableRows.filter({ hasText: name });
+  }
+  getCampaignNameCell(rowLocator) {
+    return rowLocator.locator('td').nth(1);
+  }
 
+  async getCustomDropdownOptions() {
+    await this.campaignStatusField.click(); 
+    return await this.campaignStatusField.allTextContents();
+  }
 
 }
+
+
+
+
+
+
+
+
 
 //module.exports = { campaignPage };
