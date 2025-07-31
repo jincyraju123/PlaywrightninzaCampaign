@@ -25,6 +25,13 @@ pipeline {
         bat 'npm run install:browsers'
       }
     }
+    stage('Clean Allure Results') {
+  steps {
+    bat 'rmdir /s /q allure-results' // Windows command to delete folder
+    bat 'mkdir allure-results'       // Recreate folder to avoid errors
+  }
+}
+
 
     stage('Run Tests') {
       steps {
@@ -34,7 +41,6 @@ pipeline {
     }
 
     
-
     stage('Generate Allure Report') {
       steps {
         bat 'npx allure generate ./allure-results -o ./allure-report --clean'
