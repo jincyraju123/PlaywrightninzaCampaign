@@ -8,6 +8,8 @@ pipeline {
 
   environment {
     HOME = "${env.WORKSPACE}"
+    CI = 'true'
+    
   }
 
   stages {
@@ -28,13 +30,27 @@ pipeline {
       steps {
        bat 'npm run campaigntest'
       }
-    }
-
-    stage('Process Allure Results') {
-      steps {
-        bat 'npx allure-playwright'           //Converts Playwright output into Allure-friendly format
+      post {
+        always {
+          archiveArtifacts artifacts: 'test-results/**/*', allowEmptyArchive: true
+          archiveArtifacts artifacts: 'allure-results/**/*', allowEmptyArchive: true
+        }
       }
     }
+
+    stage('Copy Artifacts') {
+      steps {
+        bat '''
+          if exist "test-results" (
+            xcopy "test-results\\*.png" "allure-results\\" /Y /Q 2>nul
+            xcopy "test-results\\*.webm" "allure-results\\" /Y /Q 2>nul
+            xcopy "test-results\\*.zip" "allure-results\\" /Y /Q 2>nul
+          )
+        '''
+      }
+    }
+
+    
 
     stage('Generate Allure Report') {
       steps {
